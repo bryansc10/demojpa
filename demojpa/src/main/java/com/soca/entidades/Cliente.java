@@ -160,5 +160,14 @@ public class Cliente {
 	public void setLimite_credito(double limite_credito) {
 		this.limite_credito = limite_credito;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("%-5s %-5s %-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s", id_cliente, codigo_cliente, nombre_cliente,
+				nombre_contacto, apellido_contacto, telefono, fax, ciudad, region, pais, codigo_postal, id_empleado,
+				limite_credito);
+	}
+	
+	
 	
 }

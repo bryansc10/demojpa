@@ -71,5 +71,10 @@ public class GamaProducto {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("%-5s %-25s %-25s %-25s %-25s", id_gama, gama, descripcion_texto, descripcion_html, imagen);
+	}
 	
 }

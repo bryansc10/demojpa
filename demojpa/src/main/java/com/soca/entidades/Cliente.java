@@ -56,6 +56,13 @@ public class Cliente {
 	public Cliente() {
 	}
 
+	public Cliente(Integer codigo_cliente, String nombre_contacto, Double limite_credito) {
+		this.codigo_cliente = codigo_cliente;
+		this.nombre_contacto = nombre_contacto;
+		this.limite_credito = limite_credito;
+	}
+
+
 	// Setters and getters
 	public int getId_cliente() {
 		return id_cliente;

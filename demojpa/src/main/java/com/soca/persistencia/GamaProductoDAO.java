@@ -1,5 +1,7 @@
 package com.soca.persistencia;
 
+import java.util.List;
+
 import com.soca.entidades.GamaProducto;
 
 import jakarta.persistence.EntityManager;
@@ -33,5 +35,8 @@ public class GamaProductoDAO {
 		
 		em.close();
 		emf.close();
+	}
+	public List<GamaProducto> listarTodas() throws Exception {
+		return  em.createQuery("SELECT gp FROM GamaProducto gp", GamaProducto.class).getResultList();
 	}
 }

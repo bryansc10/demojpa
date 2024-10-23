@@ -1,5 +1,7 @@
 package com.soca.persistencia;
 
+import java.util.List;
+
 import com.soca.entidades.Empleado;
 
 import jakarta.persistence.EntityManager;
@@ -19,5 +21,9 @@ public class EmpleadoDAO {
 		
 		em.close();
 		emf.close();
+	}
+	
+	public List<Empleado> listarTodos() throws Exception {
+		return em.createQuery("SELECT  e FROM Empleado e", Empleado.class).getResultList();
 	}
 }

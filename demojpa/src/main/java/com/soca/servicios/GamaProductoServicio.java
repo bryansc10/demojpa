@@ -1,6 +1,7 @@
 package com.soca.servicios;
 
-import com.soca.entidades.Cliente;
+import java.util.List;
+
 import com.soca.entidades.GamaProducto;
 import com.soca.persistencia.GamaProductoDAO;
 
@@ -21,6 +22,8 @@ public class GamaProductoServicio {
 			gamaProductoNueva.setImagen(imagen);
 			
 			daoGamaProducto.guardarGamaProducto(gamaProductoNueva);
+			
+			System.out.println("Se creo la gama del producto.");
 			
 		} catch (Exception e) {
 			System.out.println(e.toString() + "No se guardo la nueva gama de manera correcta");
@@ -51,6 +54,25 @@ public class GamaProductoServicio {
 			
 		} catch (Exception e) {
 			System.out.println(e.toString() + "Problemas al actualizar la gama del producto.");
+		}
+	}
+	
+	public void listarGama() {
+		try {
+			List<GamaProducto> todosGama = daoGamaProducto.listarTodas();
+			imprimirLista(todosGama);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("No se realizo la solicitud.");
+		}
+	}
+	
+	public void imprimirLista(List<GamaProducto> listaRecibida) {
+		System.out.println("LISTA DE GAMAS DE PRODUCTOS");
+		System.out.printf("%-5s %-25s %-50s %-25s %-25s\n", "ID", "Gama", "descripcion_texto", "descripcion_html", "imagen");
+		for (GamaProducto gamaProducto : listaRecibida) {
+			System.out.println(gamaProducto.toString());
 		}
 	}
 }

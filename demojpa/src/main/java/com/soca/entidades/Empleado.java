@@ -118,6 +118,12 @@ public class Empleado {
 	public void setPuesto(String puesto) {
 		this.puesto = puesto;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("%-3s %-3s %-20s %-20s %-10s %-30s %-10s %-10s %-20s", id_empleado, codigo_empleado, nombre, apellido, extension,
+				email, oficina.getId_oficina(), id_jefe, puesto);
+	}
 	
 	
 }

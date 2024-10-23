@@ -1,5 +1,7 @@
 package com.soca.servicios;
 
+import java.util.List;
+
 import com.soca.entidades.Cliente;
 import com.soca.persistencia.ClienteDAO;
 
@@ -29,6 +31,7 @@ public class ClienteServicio {
 			clienteNuevo.setId_empleado(idEmpleado);
 			
 			daoCliente.guardarCliente(clienteNuevo);
+			System.out.println("Se a creado el nuevo cliente.");
 			
 		} catch (Exception e) {
 			System.out.println(e.toString() + "No se guardo el nuevo cliente de manera correcta");
@@ -41,12 +44,29 @@ public class ClienteServicio {
 			if (clienteEncontrado==null) {
 				System.out.println("No se encontro el cliente.");
 			}
-		
+			
 			System.out.println(clienteEncontrado.toString());	
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e.toString() + "Problemas al encontrar el cliente.");
+		}
+	}
+	
+	public void listarClientes() {
+		try {
+			List<Cliente> todosClientes = daoCliente.listarTodas();
+			imprimirLista(todosClientes);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("No se realizo la solicitud.");
+		}
+	}
+	
+	public void imprimirLista(List<Cliente> listaRecibida) {
+		for (Cliente cliente : listaRecibida) {
+			System.out.printf("%s - %s - %s\n", cliente.getCodigo_cliente(), cliente.getNombre_contacto(), cliente.getLimite_credito());
 		}
 	}
 }

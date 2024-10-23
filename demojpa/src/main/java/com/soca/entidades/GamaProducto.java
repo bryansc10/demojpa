@@ -74,7 +74,7 @@ public class GamaProducto {
 
 	@Override
 	public String toString() {
-		return String.format("%-5s %-25s %-25s %-25s %-25s", id_gama, gama, descripcion_texto, descripcion_html, imagen);
+		return String.format("%-5s %-25s %-50s %-25s %-25s", id_gama, gama, descripcion_texto, descripcion_html, imagen);
 	}
 	
 }

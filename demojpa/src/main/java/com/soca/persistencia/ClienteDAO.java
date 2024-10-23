@@ -1,5 +1,7 @@
 package com.soca.persistencia;
 
+import java.util.List;
+
 import com.soca.entidades.Cliente;
 
 import jakarta.persistence.EntityManager;
@@ -22,5 +24,9 @@ public class ClienteDAO {
 		emf.close();
 		
 		return cliente;
+	}
+	
+	public List<Cliente> listarTodas() throws Exception {
+		return em.createQuery("SELECT c.codigo_cliente, c.nombre_contacto, c.limite_credito FROM Cliente c", Cliente.class).getResultList();
 	}
 }

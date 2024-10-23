@@ -1,5 +1,7 @@
 package com.soca.persistencia;
 
+import java.util.List;
+
 import com.soca.entidades.Oficina;
 
 import jakarta.persistence.EntityManager;
@@ -14,5 +16,9 @@ public class OficinaDAO {
 		em.getTransaction().begin();
 		em.persist(oficina);
 		em.getTransaction().commit();
+	}
+	
+	public List<Oficina> listarTodas() throws Exception {
+		return em.createQuery("SELECT o FROM Oficina o", Oficina.class).getResultList();
 	}
 }

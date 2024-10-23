@@ -48,6 +48,15 @@ public class Producto {
 	// Void constructor
 	public Producto() {
 	}
+	
+
+	public Producto(Integer id_producto, String nombre, Integer cantidad_en_stock, Double precio_venta) {
+		this.id_producto = id_producto;
+		this.nombre = nombre;
+		this.cantidad_en_stock = cantidad_en_stock;
+		this.precio_venta = precio_venta;
+	}
+
 
 	// Setters and getters
 	public int getId_producto() {
